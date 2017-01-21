@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Threading;
 
 namespace BridgeProblem
 {
@@ -20,8 +20,9 @@ namespace BridgeProblem
 
         //Car properties
         private int id;
-        private string StartPoint;
-        private string EndPoint;
+        private string startPoint;
+        private string endPoint;
+        private Direction direction;
 
         public Car()
         {
@@ -31,21 +32,35 @@ namespace BridgeProblem
         public Car(int id, Direction dir)
         {
             this.id = id;
+            this.direction = dir;
             if (dir == Direction.LeftToRight)
             {
-                StartPoint = "Left";
-                EndPoint = "Right";
+                startPoint = "Left";
+                endPoint = "Right";
             }
             else
             {
-                StartPoint = "Righ";
-                EndPoint = "Left";
+                startPoint = "Righ";
+                endPoint = "Left";
             }
         }
 
+        public Direction GetDirection() { return this.direction; }
+
         public string ToString()
         {
-            return "Car id : " + this.id + ", From : " + StartPoint + ", To : " + EndPoint;
+            return "Car id : " + this.id + ", From : " + startPoint + ", To : " + endPoint;
+        }
+
+        //Cross method,print the status of the car in the bridge
+        public void Cross()
+        {
+            Console.WriteLine("Vehiculo " + id + "entra por " + startPoint);
+            //Simulate Travel
+            Thread.Sleep (100);
+			Console.WriteLine ("Vehiculo " + id + " pasa puente");
+			Thread.Sleep (100);
+			Console.WriteLine("Vehiculo " + id + " sale por " + endPoint);
         }
     }
 }
