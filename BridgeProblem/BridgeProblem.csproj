@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Bridge.cs" />
     <Compile Include="Car.cs" />
     <Compile Include="CarProducer.cs" />
     <Compile Include="Form1.cs">

@@ -61,6 +61,7 @@ namespace BridgeProblem
 			Console.WriteLine ("Vehiculo " + id + " pasa puente");
 			Thread.Sleep (100);
 			Console.WriteLine("Vehiculo " + id + " sale por " + endPoint);
+            Bridge.Instance.CarReachedEnd();
         }
     }
 }
