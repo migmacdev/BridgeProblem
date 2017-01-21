@@ -24,6 +24,9 @@ namespace BridgeProblem
         private string endPoint;
         private Direction direction;
 
+        //Time to simulate car crossing the bridge
+        private int sleepTime = 500;
+
         public Car()
         {
         }
@@ -35,13 +38,13 @@ namespace BridgeProblem
             this.direction = dir;
             if (dir == Direction.LeftToRight)
             {
-                startPoint = "Left";
-                endPoint = "Right";
+                startPoint = "izquierda";
+                endPoint = "derecha";
             }
             else
             {
-                startPoint = "Righ";
-                endPoint = "Left";
+                startPoint = "derecha";
+                endPoint = "izquierda";
             }
         }
 
@@ -55,12 +58,13 @@ namespace BridgeProblem
         //Cross method,print the status of the car in the bridge
         public void Cross()
         {
-            Console.WriteLine("Vehiculo " + id + "entra por " + startPoint);
+            Form1.AddToLog( "Vehiculo " + id + " entra por " + startPoint);
             //Simulate Travel
-            Thread.Sleep (100);
-			Console.WriteLine ("Vehiculo " + id + " pasa puente");
-			Thread.Sleep (100);
-			Console.WriteLine("Vehiculo " + id + " sale por " + endPoint);
+            Thread.Sleep (sleepTime);
+            Form1.AddToLog("Vehiculo " + id + " pasa puente");
+            Thread.Sleep (sleepTime);
+            Form1.AddToLog("Vehiculo " + id + " sale por " + endPoint);
+
             Bridge.Instance.CarReachedEnd();
         }
     }
