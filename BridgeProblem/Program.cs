@@ -1,13 +1,17 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Runtime.InteropServices;
 
 namespace BridgeProblem
 {
-    static class Program
+    class Program
     {
+
         /// <summary>
         /// Punto de entrada principal para la aplicación.
         /// </summary>
@@ -15,7 +19,7 @@ namespace BridgeProblem
         static void Main()
         {
             Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+            Application.SetCompatibleTextRenderingDefault(true);
             Application.Run(new Form1());
         }
     }
